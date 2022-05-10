@@ -7,16 +7,27 @@ export const GET_ALL_MATCHES = gql`
       started_at
       p1 {
         id
+        name
       }
       p2 {
         id
+        name
       }
       setts {
         p1_score
         p2_score
       }
       finished
-      winner_id
+      winner {
+        name
+      }
+      competition {
+        name
+        club {
+          city
+          name
+        }
+      }
     }
   }
 `;

@@ -1,21 +1,13 @@
-import React from "react";
-import Container from "@material-ui/core/Container";
-import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Box } from "@material-ui/core";
+import React, { useEffect } from "react";
+import { Container, Typography, Box } from "@material-ui/core";
 import { useQuery } from "@apollo/react-hooks";
 import ErrorIcon from "@material-ui/icons/Error";
 
 import { GET_ALL_MATCHES } from "../graphql/queries";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: "2em",
-  },
-}));
-
 function MatchList() {
-  const classes = useStyles();
   const { loading, error, data } = useQuery(GET_ALL_MATCHES);
+  console.log(data);
 
   if (loading) return "Loading...";
   if (error)
@@ -26,11 +18,15 @@ function MatchList() {
       </p>
     );
 
+  const dataFilter = data?.matches?.filter((match) => {
+    return match.winner !== null;
+  });
+
   return (
-    <Container className={classes.root}>
+    <Container>
       <Typography variant="h2">Tennis Matches</Typography>
       <Box>
-        {data.matches.map((match) => (
+        {dataFilter.map((match) => (
           <article key={match.id}>
             <p>Match ID: {match.id}</p>
             <p>Match date: {match.started_at}</p>
