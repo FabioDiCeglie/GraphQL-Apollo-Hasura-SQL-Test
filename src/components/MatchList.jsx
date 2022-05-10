@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Container, Typography } from "@material-ui/core";
 import { useQuery } from "@apollo/react-hooks";
 import ErrorIcon from "@material-ui/icons/Error";
