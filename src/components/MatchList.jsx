@@ -28,7 +28,7 @@ function MatchList() {
 
   return (
     <Container className={classes.root}>
-      <Typography variant="h2">All MAtches</Typography>
+      <Typography variant="h2">Tennis Matches</Typography>
       <Box>
         {data.matches.map((match) => (
           <article key={match.id}>
