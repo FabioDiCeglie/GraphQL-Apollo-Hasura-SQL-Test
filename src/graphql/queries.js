@@ -16,6 +16,7 @@ export const GET_ALL_MATCHES = gql`
       setts {
         p1_score
         p2_score
+        nr
       }
       finished
       winner {
