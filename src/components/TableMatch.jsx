@@ -1,7 +1,5 @@
 import React, { Fragment } from "react";
 import {
-  Container,
-  Typography,
   Box,
   Table,
   TableBody,

@@ -6,6 +6,7 @@ import ErrorIcon from "@material-ui/icons/Error";
 import TableMatch from "./TableMatch";
 
 import { GET_ALL_MATCHES } from "../graphql/queries";
+import SwitchMatch from "./SwitchMatch";
 
 function MatchList() {
   const { loading, error, data } = useQuery(GET_ALL_MATCHES);
@@ -26,6 +27,8 @@ function MatchList() {
   return (
     <Container>
       <Typography variant="h2">Tennis Matches</Typography>
+      <hr />
+      <SwitchMatch />
       <hr />
       <TableMatch dataFilter={dataFilter} />
     </Container>
